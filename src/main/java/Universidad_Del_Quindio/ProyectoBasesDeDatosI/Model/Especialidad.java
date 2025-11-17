@@ -2,10 +2,12 @@ package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "especialidades")
 public class Especialidad {
@@ -42,23 +44,4 @@ public class Especialidad {
 
     // ===== Getters y Setters =====
 
-    public Integer getIdEspecialidad() {
-        return idEspecialidad;
-    }
-
-    public String getNombreEspecialidad() {
-        return nombreEspecialidad;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

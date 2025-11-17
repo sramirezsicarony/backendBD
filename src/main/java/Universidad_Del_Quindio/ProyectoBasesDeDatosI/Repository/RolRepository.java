@@ -10,12 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface RolRepository extends JpaRepository<Rol, Long> {
+public interface RolRepository extends JpaRepository<Rol, Byte> {
 
 
     // ================== CONSULTAS SIMPLES ==================
 
     // 1) Buscar por id (lectura puntual)
+    @Override
     Optional<Rol> findById(Byte idRol);
 
     // 2) Listar todos los roles

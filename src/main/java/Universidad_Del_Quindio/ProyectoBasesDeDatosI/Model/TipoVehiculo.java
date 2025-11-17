@@ -2,10 +2,12 @@ package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "tipo_vehiculo")
 public class TipoVehiculo {
@@ -37,19 +39,4 @@ public class TipoVehiculo {
 
     // ===== Getters y Setters =====
 
-    public Integer getIdTipoVehiculo() {
-        return idTipoVehiculo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

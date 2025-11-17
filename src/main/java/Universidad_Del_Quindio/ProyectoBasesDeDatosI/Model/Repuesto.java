@@ -1,24 +1,32 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "repuestos")
 public class Repuesto {
 
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_repuesto", nullable = false, updatable = false)
     private Integer idRepuesto;
 
+    @Setter
     @Column(name = "nombre", length = 120, nullable = false, unique = true)
     private String nombre;
 
+    @Setter
     @Column(name = "descripcion", length = 255)
     private String descripcion;
 
     // ===== Relación con CategoriaRepuesto =====
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_categoria_repuesto",
@@ -47,43 +55,4 @@ public class Repuesto {
 
     // ===== Getters y Setters =====
 
-    public Integer getIdRepuesto() {
-        return idRepuesto;
-    }
-
-    public void setIdRepuesto(Integer idRepuesto) {
-        this.idRepuesto = idRepuesto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public CategoriaRepuesto getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(CategoriaRepuesto categoria) {
-        this.categoria = categoria;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }
