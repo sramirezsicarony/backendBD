@@ -1,18 +1,24 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "vehiculo_servicio_orden_trabajo")
 public class VehiculoServicioOrdenTrabajo {
 
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vehiculo_servicio_orden_trabajo", nullable = false, updatable = false)
     private Integer idVehiculoServicioOrdenTrabajo;
 
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_vehiculo",
@@ -22,6 +28,7 @@ public class VehiculoServicioOrdenTrabajo {
     )
     private Vehiculo vehiculo;
 
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_servicio",
@@ -31,6 +38,7 @@ public class VehiculoServicioOrdenTrabajo {
     )
     private Servicio servicio;
 
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_orden_trabajo",
@@ -40,6 +48,7 @@ public class VehiculoServicioOrdenTrabajo {
     )
     private OrdenTrabajo ordenTrabajo;
 
+    @Setter
     @Column(name = "fecha_de_ejecucion", nullable = false)
     private LocalDate fechaDeEjecucion;
 
@@ -68,51 +77,4 @@ public class VehiculoServicioOrdenTrabajo {
 
     // ===== Getters y Setters =====
 
-    public Integer getIdVehiculoServicioOrdenTrabajo() {
-        return idVehiculoServicioOrdenTrabajo;
-    }
-
-    public void setIdVehiculoServicioOrdenTrabajo(Integer idVehiculoServicioOrdenTrabajo) {
-        this.idVehiculoServicioOrdenTrabajo = idVehiculoServicioOrdenTrabajo;
-    }
-
-    public Vehiculo getVehiculo() {
-        return vehiculo;
-    }
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    public Servicio getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(Servicio servicio) {
-        this.servicio = servicio;
-    }
-
-    public OrdenTrabajo getOrdenTrabajo() {
-        return ordenTrabajo;
-    }
-
-    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
-        this.ordenTrabajo = ordenTrabajo;
-    }
-
-    public LocalDate getFechaDeEjecucion() {
-        return fechaDeEjecucion;
-    }
-
-    public void setFechaDeEjecucion(LocalDate fechaDeEjecucion) {
-        this.fechaDeEjecucion = fechaDeEjecucion;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

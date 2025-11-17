@@ -1,16 +1,22 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "detalle_orden_repuesto")
 public class DetalleOrdenRepuesto {
 
+    @Setter
     @EmbeddedId
     private DetalleOrdenRepuestoId id;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idOrdenTrabajo")
     @JoinColumn(
@@ -21,6 +27,7 @@ public class DetalleOrdenRepuesto {
     )
     private OrdenTrabajo ordenTrabajo;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idRepuesto")
     @JoinColumn(
@@ -31,9 +38,11 @@ public class DetalleOrdenRepuesto {
     )
     private Repuesto repuesto;
 
+    @Setter
     @Column(name = "cantidad", nullable = false)
     private Short cantidad; // SMALLINT UNSIGNED
 
+    @Setter
     @Column(name = "sub_total", precision = 10, scale = 2, nullable = false)
     private BigDecimal subTotal;
 
@@ -60,51 +69,4 @@ public class DetalleOrdenRepuesto {
 
     // ===== Getters y Setters =====
 
-    public DetalleOrdenRepuestoId getId() {
-        return id;
-    }
-
-    public void setId(DetalleOrdenRepuestoId id) {
-        this.id = id;
-    }
-
-    public OrdenTrabajo getOrdenTrabajo() {
-        return ordenTrabajo;
-    }
-
-    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
-        this.ordenTrabajo = ordenTrabajo;
-    }
-
-    public Repuesto getRepuesto() {
-        return repuesto;
-    }
-
-    public void setRepuesto(Repuesto repuesto) {
-        this.repuesto = repuesto;
-    }
-
-    public Short getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Short cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public BigDecimal getSubTotal() {
-        return subTotal;
-    }
-
-    public void setSubTotal(BigDecimal subTotal) {
-        this.subTotal = subTotal;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

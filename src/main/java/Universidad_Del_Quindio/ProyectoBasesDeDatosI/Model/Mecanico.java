@@ -1,20 +1,27 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "mecanicos")
 public class Mecanico {
 
+    @Setter
     @Id
     @Column(name = "id_mecanico", length = 15, nullable = false, updatable = false)
     private String idMecanico;
 
+    @Setter
     @Column(name = "experiencia", nullable = false)
     private Byte experiencia; // TINYINT UNSIGNED → Short
 
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_especialidad",
@@ -24,6 +31,7 @@ public class Mecanico {
     )
     private Especialidad especialidad;
 
+    @Setter
     @Column(name = "costo_hora", precision = 10, scale = 2, nullable = false)
     private BigDecimal costoHora;
 
@@ -47,43 +55,4 @@ public class Mecanico {
 
     // ===== Getters y Setters =====
 
-    public String getIdMecanico() {
-        return idMecanico;
-    }
-
-    public void setIdMecanico(String idMecanico) {
-        this.idMecanico = idMecanico;
-    }
-
-    public Byte getExperiencia() {
-        return experiencia;
-    }
-
-    public void setExperiencia(Byte experiencia) {
-        this.experiencia = experiencia;
-    }
-
-    public Especialidad getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(Especialidad especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public BigDecimal getCostoHora() {
-        return costoHora;
-    }
-
-    public void setCostoHora(BigDecimal costoHora) {
-        this.costoHora = costoHora;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

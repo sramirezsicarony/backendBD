@@ -1,15 +1,21 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "area_trabajos")
 public class AreaTrabajos {
 
+    @Setter
     @EmbeddedId
     private AreaTrabajosId id;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idAreaLaboral")
     @JoinColumn(
@@ -20,6 +26,7 @@ public class AreaTrabajos {
     )
     private AreaLaboral areaLaboral;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idMecanico")
     @JoinColumn(
@@ -51,35 +58,4 @@ public class AreaTrabajos {
 
     // ===== Getters y Setters =====
 
-    public AreaTrabajosId getId() {
-        return id;
-    }
-
-    public void setId(AreaTrabajosId id) {
-        this.id = id;
-    }
-
-    public AreaLaboral getAreaLaboral() {
-        return areaLaboral;
-    }
-
-    public void setAreaLaboral(AreaLaboral areaLaboral) {
-        this.areaLaboral = areaLaboral;
-    }
-
-    public Mecanico getMecanico() {
-        return mecanico;
-    }
-
-    public void setMecanico(Mecanico mecanico) {
-        this.mecanico = mecanico;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

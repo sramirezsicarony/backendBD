@@ -1,17 +1,23 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "suministra")
 public class Suministra {
 
+    @Setter
     @EmbeddedId
     private SuministraId id;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idProveedor")
     @JoinColumn(
@@ -22,6 +28,7 @@ public class Suministra {
     )
     private Proveedor proveedor;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idRepuesto")
     @JoinColumn(
@@ -32,15 +39,19 @@ public class Suministra {
     )
     private Repuesto repuesto;
 
+    @Setter
     @Column(name = "costo_unitario", precision = 10, scale = 2, nullable = false)
     private BigDecimal costoUnitario;
 
+    @Setter
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
+    @Setter
     @Column(name = "costo_total", precision = 12, scale = 2, nullable = false)
     private BigDecimal costoTotal;
 
+    @Setter
     @Column(name = "fecha_ingreso", nullable = false)
     private LocalDate fechaIngreso;
 
@@ -73,67 +84,4 @@ public class Suministra {
 
     // ===== Getters y Setters =====
 
-    public SuministraId getId() {
-        return id;
-    }
-
-    public void setId(SuministraId id) {
-        this.id = id;
-    }
-
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
-
-    public Repuesto getRepuesto() {
-        return repuesto;
-    }
-
-    public void setRepuesto(Repuesto repuesto) {
-        this.repuesto = repuesto;
-    }
-
-    public BigDecimal getCostoUnitario() {
-        return costoUnitario;
-    }
-
-    public void setCostoUnitario(BigDecimal costoUnitario) {
-        this.costoUnitario = costoUnitario;
-    }
-
-    public Integer getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public BigDecimal getCostoTotal() {
-        return costoTotal;
-    }
-
-    public void setCostoTotal(BigDecimal costoTotal) {
-        this.costoTotal = costoTotal;
-    }
-
-    public LocalDate getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(LocalDate fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }

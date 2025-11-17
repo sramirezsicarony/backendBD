@@ -1,9 +1,14 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Setter
+@Getter
 @Embeddable
 public class SuministraId implements Serializable {
 
@@ -17,22 +22,6 @@ public class SuministraId implements Serializable {
 
     public SuministraId(Integer idProveedor, Integer idRepuesto) {
         this.idProveedor = idProveedor;
-        this.idRepuesto = idRepuesto;
-    }
-
-    public Integer getIdProveedor() {
-        return idProveedor;
-    }
-
-    public void setIdProveedor(Integer idProveedor) {
-        this.idProveedor = idProveedor;
-    }
-
-    public Integer getIdRepuesto() {
-        return idRepuesto;
-    }
-
-    public void setIdRepuesto(Integer idRepuesto) {
         this.idRepuesto = idRepuesto;
     }
 

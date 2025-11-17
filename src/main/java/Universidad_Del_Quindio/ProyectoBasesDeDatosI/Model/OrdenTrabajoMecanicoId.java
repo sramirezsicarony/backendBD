@@ -1,9 +1,14 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Setter
+@Getter
 @Embeddable
 public class OrdenTrabajoMecanicoId implements Serializable {
 
@@ -18,22 +23,6 @@ public class OrdenTrabajoMecanicoId implements Serializable {
 
     public OrdenTrabajoMecanicoId(Integer idOrdenTrabajo, String idMecanico) {
         this.idOrdenTrabajo = idOrdenTrabajo;
-        this.idMecanico = idMecanico;
-    }
-
-    public Integer getIdOrdenTrabajo() {
-        return idOrdenTrabajo;
-    }
-
-    public void setIdOrdenTrabajo(Integer idOrdenTrabajo) {
-        this.idOrdenTrabajo = idOrdenTrabajo;
-    }
-
-    public String getIdMecanico() {
-        return idMecanico;
-    }
-
-    public void setIdMecanico(String idMecanico) {
         this.idMecanico = idMecanico;
     }
 

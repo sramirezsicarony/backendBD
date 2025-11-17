@@ -1,16 +1,22 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @Table(name = "orden_trabajo_mecanico")
 public class OrdenTrabajoMecanico {
 
+    @Setter
     @EmbeddedId
     private OrdenTrabajoMecanicoId id;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idOrdenTrabajo")
     @JoinColumn(
@@ -21,6 +27,7 @@ public class OrdenTrabajoMecanico {
     )
     private OrdenTrabajo ordenTrabajo;
 
+    @Setter
     @ManyToOne(optional = false)
     @MapsId("idMecanico")
     @JoinColumn(
@@ -31,6 +38,7 @@ public class OrdenTrabajoMecanico {
     )
     private Mecanico mecanico;
 
+    @Setter
     @ManyToOne(optional = false)
     @JoinColumn(
             name = "id_rol",
@@ -40,12 +48,15 @@ public class OrdenTrabajoMecanico {
     )
     private Rol rol;
 
+    @Setter
     @Column(name = "horas", precision = 5, scale = 2, nullable = false)
     private BigDecimal horas;
 
+    @Setter
     @Column(name = "costo_hora", precision = 10, scale = 2, nullable = false)
     private BigDecimal costoHora;
 
+    @Setter
     @Column(name = "costo_total", precision = 12, scale = 2, nullable = false)
     private BigDecimal costoTotal;
 
@@ -79,67 +90,4 @@ public class OrdenTrabajoMecanico {
 
     // ===== Getters y Setters =====
 
-    public OrdenTrabajoMecanicoId getId() {
-        return id;
-    }
-
-    public void setId(OrdenTrabajoMecanicoId id) {
-        this.id = id;
-    }
-
-    public OrdenTrabajo getOrdenTrabajo() {
-        return ordenTrabajo;
-    }
-
-    public void setOrdenTrabajo(OrdenTrabajo ordenTrabajo) {
-        this.ordenTrabajo = ordenTrabajo;
-    }
-
-    public Mecanico getMecanico() {
-        return mecanico;
-    }
-
-    public void setMecanico(Mecanico mecanico) {
-        this.mecanico = mecanico;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public BigDecimal getHoras() {
-        return horas;
-    }
-
-    public void setHoras(BigDecimal horas) {
-        this.horas = horas;
-    }
-
-    public BigDecimal getCostoHora() {
-        return costoHora;
-    }
-
-    public void setCostoHora(BigDecimal costoHora) {
-        this.costoHora = costoHora;
-    }
-
-    public BigDecimal getCostoTotal() {
-        return costoTotal;
-    }
-
-    public void setCostoTotal(BigDecimal costoTotal) {
-        this.costoTotal = costoTotal;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
 }
