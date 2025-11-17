@@ -1,4 +1,4 @@
-package Universidad_Del_Quindio.ProyectoBasesDeDatosI.controller;
+package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Controller;
 
 import Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model.Cliente;
 import Universidad_Del_Quindio.ProyectoBasesDeDatosI.Service.ClienteService;

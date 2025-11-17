@@ -1,4 +1,4 @@
-package Universidad_Del_Quindio.ProyectoBasesDeDatosI.controller;
+package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Controller;
 import Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model.Proveedor;
 import Universidad_Del_Quindio.ProyectoBasesDeDatosI.Service.ProveedorService;
 import jakarta.persistence.EntityNotFoundException;
