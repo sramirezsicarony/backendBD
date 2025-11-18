@@ -1,9 +1,12 @@
 package Universidad_Del_Quindio.ProyectoBasesDeDatosI.Model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Getter
 @Embeddable
 public class BodegaId implements Serializable {
 
@@ -20,16 +23,8 @@ public class BodegaId implements Serializable {
         this.idRepuesto = idRepuesto;
     }
 
-    public Integer getIdAlmacen() {
-        return idAlmacen;
-    }
-
     public void setIdAlmacen(Integer idAlmacen) {
         this.idAlmacen = idAlmacen;
-    }
-
-    public Integer getIdRepuesto() {
-        return idRepuesto;
     }
 
     public void setIdRepuesto(Integer idRepuesto) {
